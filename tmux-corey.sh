@@ -15,13 +15,13 @@ session="${Main_User}-SNOC"
 
 # Define Window Names
 Window0="menu_SNOC.sh"
-Window1="lsysadm1p"
-Window2="lsysadm2p"
+Window1="Server1"
+Window2="Server2"
 Window3="Multi_Script"
 Window4="Hot_Standby"
 Window5="SNOC1"
 Window6="SNOC2"
-Window7="lgit2p"
+Window7="Server3"
 
 Enter_Pass(){
 	echo "Please enter your password:   "
@@ -32,7 +32,7 @@ Test_Pass(){
 	# test password via scp
 	echo "Tmux es increíble, al igual que vim. señor camisa azul disfruta jugando juegos." > ~/tmux.temporary
 	/usr/bin/expect -f <(cat <<- EOF
-		spawn scp tmux.temporary ${Main_User}@lsysadm1p:/home/C54917a/SNOC_Script/
+		spawn scp tmux.temporary ${Main_User}@Server1:/home/C54917a/SNOC_Script/
 		#######################
 		expect {
 			-re ".*es.*o.*" {
@@ -98,9 +98,9 @@ else
 	# create a new tmux session and window
 	tmux new-session -d -s $session -n $Window0
 
-	# Select pane 1, connect to lsysadm1p
+	# Select pane 1, connect to Server1
 	tmux selectp -t 1 
-	tmux send-keys "$SSH lsysadm1p" C-m 
+	tmux send-keys "$SSH Server1" C-m 
 	Connect
 	tmux send-keys "vim" C-m 
 	#Switch_to_Root
@@ -111,16 +111,16 @@ else
 	tmux new-window -t $session:1 -n $Window1
 	tmux select-window -t $session:1
 
-	# Select pane 1, connect to lsysadm1p
+	# Select pane 1, connect to Server2
 	tmux selectp -t 1 
-	tmux send-keys "$SSH lsysadm1p" C-m 
+	tmux send-keys "$SSH Server1" C-m 
 	Connect
 	Switch_to_Root
 
-	# Split pane 1, connect to lsysadm1p
+	# Split pane 1, connect to Server1
 	tmux splitw -v
 	tmux resize-pane -D 20
-	tmux send-keys "$SSH lsysadm1p" C-m 
+	tmux send-keys "$SSH Server1" C-m 
 	Connect
 	Switch_to_Root
 
@@ -130,43 +130,34 @@ else
 	tmux new-window -t $session:2 -n $Window2
 	tmux select-window -t $session:2
 
-	# Select pane 1, connect to lsysadm2p
+	# Select pane 1, connect to Server2
 	tmux selectp -t 1 
-	tmux send-keys "$SSH lsysadm2p" C-m 
+	tmux send-keys "$SSH Server2" C-m 
 	Connect
 	Switch_to_Root
 
-	# Split pane 1, connect to lsysadm2p
+	# Split pane 1, connect to Server2
 	tmux splitw -v
 	tmux resize-pane -D 20
-	tmux send-keys "$SSH lsysadm2p" C-m 
+	tmux send-keys "$SSH Server2"" C-m 
 	Connect
 	Switch_to_Root
 
-	# create a new window   ------------   2 additional ssh sessions to lsysadm1p for SNOC script
 	tmux selectp -t 1
 	tmux new-window -t $session:3 -n $Window3
 	tmux select-window -t $session:3
 
-	# Select pane 1, connect to lsysadm1p
+	# Select pane 1, connect to Server1
 	tmux selectp -t 1 
-	tmux send-keys "$SSH lsysadm1p" C-m 
+	tmux send-keys "$SSH Server1" C-m 
 	Connect
 	Switch_to_Root
 
-	# Split pane 1, connect to lsysadm1p
+	# Split pane 1, connect to Server1
 	tmux splitw -v
-	tmux send-keys "$SSH lsysadm1p" C-m 
+	tmux send-keys "$SSH Server1" C-m 
 	Connect
 	Switch_to_Root
-
-#	# Select pane 1, connect to lsysadm1p
-#	tmux selectp -t 1 
-#	tmux splitw -v
-#	tmux send-keys "$SSH lsysadm1p" C-m 
-#	Connect
-#	Switch_to_Root
-#	tmux select-layout even-vertical
 
 	tmux new-window -t $session:4 -n $Window4
 	tmux select-window -t $session:4
@@ -184,7 +175,7 @@ else
 GitLab_Server(){
 	tmux new-window -t $session:7 -n $Window7
 	tmux select-window -t $session:7
-	tmux send-keys "$SSH lgit2p" C-m 
+	tmux send-keys "$SSH Server3" C-m 
 	Connect
 	tmux selectp -t 1 
 }
