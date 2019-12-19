@@ -7,11 +7,7 @@ expect_ret_code=1
 Main_User=$(who am i | awk '{ print $1 }')
 
 #Define Session Names
-session="${Main_User}-SNOC"
-
-
-#	ladmin2p
-
+session="${Main_User}-tmux"
 
 # Define Window Names
 Window0="menu_SNOC.sh"
