@@ -712,7 +712,6 @@ Read_Menu_Dice_Menu(){
 Print_Menu_Main(){
 	clear
 	echo "G. Number Guessing Game"
-	echo "R. Randomize Colors Once"
 	echo "D. Roll Dice --- Earn Points --- Earn The #1 Spot"
 	echo "0. Exit"
 	if [[ ! " ${Menus[@]} " =~ " Read_Menu_Main " ]];then
@@ -723,7 +722,6 @@ Print_Menu_Main(){
 Read_Menu_Main(){
 	case $choice in
 		d|D) Menus+=("Print_Dice_Menu");dice_roll_count="0";if [ ! -f "$Dice_Config_File" ]; then Create_Dice_Config;fi;Read_Dice_Config;Update_Dice_Leaderboard ;;
-		r|R) Randomness=0;sed -i "s/Randomness = .*/Randomness = $(echo $Randomness)/" $Config_File;Randomize_Colors ;;
 		g|G) I_Wanna_Play_A_Game ;;
 		0) unset Menus ;;
 		*) echo -n ""
