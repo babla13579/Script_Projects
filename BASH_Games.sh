@@ -41,6 +41,7 @@ Create_Config_File(){
 	echo "Cust_Error = \\033[1;97;41m" >> $Config_File
 	echo "Cust_Output = \\033[1;92;40m" >> $Config_File
 	echo "Cust_Menu = \\033[1;94;40m" >> $Config_File
+	echo "Remember_Colors = 0" >> $Config_File
 	echo "Randomness = 0" >> $Config_File
 	echo "Randomize = Cust_Output" >> $Config_File
 	echo "Show_Warnings = 1" >> $Config_File
