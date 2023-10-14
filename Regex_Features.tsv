@@ -1,0 +1,132 @@
+Characters	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+Characters	Backslash escapes one metacharacter	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES
+Characters	\Q...\E escapes a string of metacharacters	YES	no	Java 6	YES	YES	no	no	no	no	no	no	no	no	no	no
+Characters	\x00 through \xFF (ASCII character)	YES	YES	YES	YES	YES	YES	YES	YES	YES	no	no	no	no	no	no
+Characters	\n (LF), \r (CR) and \t (tab)	YES	YES	YES	YES	YES	YES	YES	YES	YES	no	no	no	no	YES	YES
+Characters	\f (form feed) and \v (vtab)	YES	YES	YES	YES	YES	YES	YES	YES	YES	no	no	no	no	no	no
+Characters	\a (bell)	YES	YES	YES	YES	YES	no	YES	YES	YES	no	no	no	no	no	no
+Characters	\e (escape)	YES	YES	YES	YES	YES	no	no	YES	YES	no	no	no	no	no	no
+Characters	\b (backspace) and \B (backslash)	no	no	no	no	no	no	no	no	YES	no	no	no	no	no	no
+Characters	\cA through \cZ (control character)	YES	YES	YES	YES	YES	YES	no	no	YES	no	no	no	no	no	no
+Characters	\ca through \cz (control character)	YES	YES	no	YES	YES	YES	no	no	YES	no	no	no	no	no	no
+Character Classes or Character Sets	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+Character Classes or Character Sets	[abc] character class	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES
+Character Classes or Character Sets	[^abc] negated character class	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES
+Character Classes or Character Sets	[a-z] character class range	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES
+Character Classes or Character Sets	Hyphen in [\d-z] is a literal	YES	YES	YES	YES	YES	no	no	no	no	no	no	no	no	no	no
+Character Classes or Character Sets	Hyphen in [a-\d] is a literal	YES	no	no	no	YES	no	no	no	no	no	no	no	no	no	no
+Character Classes or Character Sets	Backslash escapes one character class metacharacter	YES	YES	YES	YES	YES	YES	YES	YES	YES	no	no	no	no	YES	YES
+Character Classes or Character Sets	\Q...\E escapes a string of character class metacharacters	YES	no	Java 6	YES	YES	no	no	no	no	no	no	no	no	no	no
+Character Classes or Character Sets	\d shorthand for digits	YES	YES	ascii	YES	ascii	ascii	option	ascii	YES	no	no	no	no	YES	YES
+Character Classes or Character Sets	\w shorthand for word characters	YES	YES	ascii	YES	ascii	ascii	option	ascii	YES	no	no	YES	YES	YES	YES
+Character Classes or Character Sets	\s shorthand for whitespace	YES	YES	ascii	YES	ascii	YES	option	ascii	YES	no	no	YES	YES	ascii	ascii
+Character Classes or Character Sets	\D, \W and \S shorthand negated character classes	YES	YES	YES	YES	YES	YES	YES	YES	YES	no	no	YES	YES	YES	YES
+Character Classes or Character Sets	[\b] backspace	YES	YES	YES	YES	YES	YES	YES	YES	YES	no	no	no	no	no	no
+Dot	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+Dot	. (dot; any character except line break)	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES
+Anchors	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+Anchors	^ (start of string/line)	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	no	YES
+Anchors	$ (end of string/line)	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	no	YES
+Anchors	\A (start of string)	YES	YES	YES	YES	YES	no	YES	YES	YES	no	no	no	no	no	no
+Anchors	\Z (end of string, before final line break)	YES	YES	YES	YES	YES	no	no	YES	YES	no	no	no	no	no	no
+Anchors	\z (end of string)	YES	YES	YES	YES	YES	no	\Z	YES	no	no	no	no	no	no	no
+Anchors	\` (start of string)	no	no	no	no	no	no	no	no	no	no	no	YES	YES	no	no
+Anchors	\' (end of string)	no	no	no	no	no	no	no	no	no	no	no	YES	YES	no	no
+Word Boundaries	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+Word Boundaries	\b (at the beginning or end of a word)	YES	YES	YES	YES	ascii	ascii	option	ascii	no	no	no	YES	YES	no	no
+Word Boundaries	\B (NOT at the beginning or end of a word)	YES	YES	YES	YES	ascii	ascii	option	ascii	no	no	no	YES	YES	no	no
+Word Boundaries	\y (at the beginning or end of a word)	YES	no	no	no	no	no	no	no	YES	no	no	no	no	no	no
+Word Boundaries	\Y (NOT at the beginning or end of a word)	YES	no	no	no	no	no	no	no	YES	no	no	no	no	no	no
+Word Boundaries	\m (at the beginning of a word)	YES	no	no	no	no	no	no	no	YES	no	no	no	no	no	no
+Word Boundaries	\M (at the end of a word)	YES	no	no	no	no	no	no	no	YES	no	no	no	no	no	no
+Word Boundaries	\&lt; (at the beginning of a word)	no	no	no	no	no	no	no	no	no	no	no	YES	YES	no	no
+Word Boundaries	\&gt; (at the end of a word)	no	no	no	no	no	no	no	no	no	no	no	YES	YES	no	no
+Alternation	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+Alternation	| (alternation)	YES	YES	YES	YES	YES	YES	YES	YES	YES	no	YES	\|	YES	YES	YES
+Quantifiers	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+Quantifiers	? (0 or 1)	YES	YES	YES	YES	YES	YES	YES	YES	YES	no	YES	\?	YES	YES	YES
+Quantifiers	* (0 or more)	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES
+Quantifiers	+ (1 or more)	YES	YES	YES	YES	YES	YES	YES	YES	YES	no	YES	\+	YES	YES	YES
+Quantifiers	{n} (exactly n)	YES	YES	YES	YES	YES	YES	YES	YES	YES	\{n\}	YES	\{n\}	YES	YES	YES
+Quantifiers	{n,m} (between n and m)	YES	YES	YES	YES	YES	YES	YES	YES	YES	\{n,m\}	YES	\{n,m\}	YES	YES	YES
+Quantifiers	{n,} (n or more)	YES	YES	YES	YES	YES	YES	YES	YES	YES	\{n,\}	YES	\{n,\}	YES	YES	YES
+Quantifiers	? after any of the above quantifiers to make it "lazy"	YES	YES	YES	YES	YES	YES	YES	YES	YES	no	no	no	no	no	YES
+Grouping and Backreferences	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+Grouping and Backreferences	(regex) (numbered capturing group)	YES	YES	YES	YES	YES	YES	YES	YES	YES	\( \)	YES	\( \)	YES	YES	YES
+Grouping and Backreferences	(?:regex) (non-capturing group)	YES	YES	YES	YES	YES	YES	YES	YES	YES	no	no	no	no	no	no
+Grouping and Backreferences	\1 through \9 (backreferences)	YES	YES	YES	YES	YES	YES	YES	YES	YES	YES	no	YES	YES	no	YES
+Grouping and Backreferences	\10 through \99 (backreferences)	YES	YES	YES	YES	YES	YES	YES	YES	YES	no	n/a	no	no	n/a	YES
+Grouping and Backreferences	Forward references \1 through \9	YES	YES	YES	YES	YES	no	no	YES	no	no	n/a	no	no	n/a	no
+Grouping and Backreferences	Nested references \1 through \9	YES	YES	YES	YES	YES	YES	no	YES	no	no	n/a	no	no	n/a	no
+Grouping and Backreferences	Backreferences non-existent groups are an error	YES	YES	YES	YES	YES	no	YES	no	YES	YES	n/a	YES	YES	n/a	YES
+Grouping and Backreferences	Backreferences to failed groups also fail	YES	YES	YES	YES	YES	no	YES	YES	YES	YES	n/a	YES	YES	n/a	YES
+Modifiers	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+Modifiers	(?i) (case insensitive)	YES	YES	YES	YES	YES	/i only	YES	YES	YES	no	no	no	no	no	flag
+Modifiers	(?s) (dot matches newlines)	YES	YES	YES	YES	YES	no	YES	(?m)	no	no	no	no	no	no	flag
+Modifiers	(?m) (^ and $ match at line breaks)	YES	YES	YES	YES	YES	/m only	YES	always on	no	no	no	no	no	no	flag
+Modifiers	(?x) (free-spacing mode)	YES	YES	YES	YES	YES	no	YES	YES	YES	no	no	no	no	no	flag
+Modifiers	(?n) (explicit capture)	YES	YES	no	no	no	no	no	no	no	no	no	no	no	no	no
+Modifiers	(?-ismxn) (turn off mode modifiers)	YES	YES	YES	YES	YES	no	no	YES	no	no	no	no	no	no	no
+Modifiers	(?ismxn:group) (mode modifiers local to group)	YES	YES	YES	YES	YES	no	no	YES	no	no	no	no	no	no	no
+Atomic Grouping and Possessive Quantifiers	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+Atomic Grouping and Possessive Quantifiers	(?&gt;regex) (atomic group)	YES	YES	YES	YES	YES	no	no	YES	no	no	no	no	no	no	no
+Atomic Grouping and Possessive Quantifiers	?+, *+, ++ and {m,n}+ (possessive quantifiers)	YES	no	YES	no	YES	no	no	no	no	no	no	no	no	no	no
+Lookaround	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+Lookaround	(?=regex) (positive lookahead)	YES	YES	YES	YES	YES	YES	YES	YES	YES	no	no	no	no	no	no
+Lookaround	(?!regex) (negative lookahead)	YES	YES	YES	YES	YES	YES	YES	YES	YES	no	no	no	no	no	no
+Lookaround	(?&lt;=text) (positive lookbehind)	full regex	full regex	finite length	fixed length	fixed + alternation	no	fixed length	no	no	no	no	no	no	no	no
+Lookaround	(?&lt;!text) (negative lookbehind)	full regex	full regex	finite length	fixed length	fixed + alternation	no	fixed length	no	no	no	no	no	no	no	no
+Continuing from The Previous Match	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+Continuing from The Previous Match	\G (start of match attempt)	YES	YES	YES	YES	YES	no	no	YES	no	no	no	no	no	no	no
+Conditionals	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+Conditionals	(?(?=regex)then|else) (using any lookaround)	YES	YES	no	YES	YES	no	no	no	no	no	no	no	no	no	no
+Conditionals	(?(regex)then|else)	no	YES	no	no	no	no	no	no	no	no	no	no	no	no	no
+Conditionals	(?(1)then|else)	YES	YES	no	YES	YES	no	YES	no	no	no	no	no	no	no	no
+Conditionals	(?(group)then|else)	YES	YES	no	no	YES	no	YES	no	no	no	no	no	no	no	no
+Comments	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+Comments	(?#comment)	YES	YES	no	YES	YES	no	YES	YES	YES	no	no	no	no	no	no
+Free-Spacing Syntax	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+Free-Spacing Syntax	Free-spacing syntax supported	YES	YES	YES	YES	YES	no	YES	YES	YES	no	no	no	no	no	YES
+Free-Spacing Syntax	Character class is a single token	YES	YES	no	YES	YES	n/a	YES	YES	YES	n/a	n/a	n/a	n/a	n/a	YES
+Free-Spacing Syntax	# starts a comment	YES	YES	YES	YES	YES	n/a	YES	YES	YES	n/a	n/a	n/a	n/a	n/a	no
+Unicode Characters	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+Unicode Characters	\X (Unicode grapheme)	YES	no	no	YES	option	no	no	no	no	no	no	no	no	no	no
+Unicode Characters	\u0000 through \uFFFF (Unicode character)	YES	YES	YES	no	no	YES	u"string"	no	YES	no	no	no	no	no	no
+Unicode Characters	\x{0} through \x{FFFF} (Unicode character)	YES	no	no	YES	option	no	no	no	no	no	no	no	no	no	no
+Unicode Properties, Scripts and Blocks	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+Unicode Properties, Scripts and Blocks	\pL through \pC (Unicode properties)	YES	no	YES	YES	option	no	no	no	no	no	no	no	no	no	no
+Unicode Properties, Scripts and Blocks	\p{L} through \p{C} (Unicode properties)	YES	YES	YES	YES	option	no	no	no	no	no	no	no	no	YES	YES
+Unicode Properties, Scripts and Blocks	\p{Lu} through \p{Cn} (Unicode property)	YES	YES	YES	YES	option	no	no	no	no	no	no	no	no	YES	YES
+Unicode Properties, Scripts and Blocks	\p{L&amp;} and \p{Letter&amp;} (equivalent of [\p{Lu}\p{Ll}\p{Lt}] Unicode properties)	YES	no	no	YES	option	no	no	no	no	no	no	no	no	no	no
+Unicode Properties, Scripts and Blocks	\p{IsL} through \p{IsC} (Unicode properties)	YES	no	YES	YES	no	no	no	no	no	no	no	no	no	no	no
+Unicode Properties, Scripts and Blocks	\p{IsLu} through \p{IsCn} (Unicode property)	YES	no	YES	YES	no	no	no	no	no	no	no	no	no	no	no
+Unicode Properties, Scripts and Blocks	\p{Letter} through \p{Other} (Unicode properties)	YES	no	no	YES	no	no	no	no	no	no	no	no	no	no	no
+Unicode Properties, Scripts and Blocks	\p{Lowercase_Letter} through \p{Not_Assigned} (Unicode property)	YES	no	no	YES	no	no	no	no	no	no	no	no	no	no	no
+Unicode Properties, Scripts and Blocks	\p{IsLetter} through \p{IsOther} (Unicode properties)	YES	no	no	YES	no	no	no	no	no	no	no	no	no	no	no
+Unicode Properties, Scripts and Blocks	\p{IsLowercase_Letter} through \p{IsNot_Assigned} (Unicode property)	YES	no	no	YES	no	no	no	no	no	no	no	no	no	no	no
+Unicode Properties, Scripts and Blocks	\p{Arabic} through \p{Yi} (Unicode script)	YES	no	no	YES	option	no	no	no	no	no	no	no	no	no	no
+Unicode Properties, Scripts and Blocks	\p{IsArabic} through \p{IsYi} (Unicode script)	YES	no	no	YES	no	no	no	no	no	no	no	no	no	no	no
+Unicode Properties, Scripts and Blocks	\p{BasicLatin} through \p{Specials} (Unicode block)	YES	no	no	YES	no	no	no	no	no	no	no	no	no	no	no
+Unicode Properties, Scripts and Blocks	\p{InBasicLatin} through \p{InSpecials} (Unicode block)	YES	no	YES	YES	no	no	no	no	no	no	no	no	no	no	no
+Unicode Properties, Scripts and Blocks	\p{IsBasicLatin} through \p{IsSpecials} (Unicode block)	YES	YES	no	YES	no	no	no	no	no	no	no	no	no	YES	YES
+Unicode Properties, Scripts and Blocks	Part between {} in all of the above is case insensitive	YES	no	no	YES	no	no	no	no	no	no	no	no	no	no	no
+Unicode Properties, Scripts and Blocks	Spaces, hyphens and underscores allowed in all long names listed above (e.g. BasicLatin can be written as Basic-Latin or Basic_Latin or Basic Latin)	YES	no	Java 5	YES	no	no	no	no	no	no	no	no	no	no	no
+Unicode Properties, Scripts and Blocks	\P (negated variants of all \p as listed above)	YES	YES	YES	YES	option	no	no	no	no	no	no	no	no	YES	YES
+Unicode Properties, Scripts and Blocks	\p{^...} (negated variants of all \p{...} as listed above)	YES	no	no	YES	option	no	no	no	no	no	no	no	no	no	no
+Named Capture and Backreferences	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+Named Capture and Backreferences	(?&lt;name&gt;regex) (.NET-style named capturing group)	YES	YES	no	no	no	no	no	no	no	no	no	no	no	no	no
+Named Capture and Backreferences	(?'name'regex) (.NET-style named capturing group)	YES	YES	no	no	no	no	no	no	no	no	no	no	no	no	no
+Named Capture and Backreferences	\k&lt;name&gt; (.NET-style named backreference)	YES	YES	no	no	no	no	no	no	no	no	no	no	no	no	no
+Named Capture and Backreferences	\k'name' (.NET-style named backreference)	YES	YES	no	no	no	no	no	no	no	no	no	no	no	no	no
+Named Capture and Backreferences	(?P&lt;name&gt;regex) (Python-style named capturing group	YES	no	no	no	YES	no	YES	no	no	no	no	no	no	no	no
+Named Capture and Backreferences	(?P=name) (Python-style named backreference)	YES	no	no	no	YES	no	YES	no	no	no	no	no	no	no	no
+Named Capture and Backreferences	multiple capturing groups can have the same name	YES	YES	n/a	n/a	no	n/a	no	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a
+XML Character Classes	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+XML Character Classes	\i, \I, \c and \C shorthand XML name character classes	no	no	no	no	no	no	no	no	no	no	no	no	no	YES	YES
+XML Character Classes	[abc-[abc]] character class subtraction	YES	2.0	no	no	no	no	no	no	no	no	no	no	no	YES	YES
+POSIX Bracket Expressions	Feature	JGsoft	.NET	Java	Perl	PCRE	ECMA	Python	Ruby	Tcl ARE	POSIX BRE	POSIX ERE	GNU BRE	GNU ERE	XML	XPath
+POSIX Bracket Expressions	[:alpha:] POSIX character class	YES	no	no	YES	ascii	no	no	YES	YES	YES	YES	YES	YES	no	no
+POSIX Bracket Expressions	\p{Alpha} POSIX character class	YES	no	ascii	no	no	no	no	no	no	no	no	no	no	no	no
+POSIX Bracket Expressions	\p{IsAlpha} POSIX character class	YES	no	no	YES	no	no	no	no	no	no	no	no	no	no	no
+POSIX Bracket Expressions	[.span-ll.] POSIX collation sequence	no	no	no	no	no	no	no	no	YES	YES	YES	YES	YES	no	no
+POSIX Bracket Expressions	[=x=] POSIX character equivalence	no	no	no	no	no	no	no	no	YES	YES	YES	YES	YES	no	no
