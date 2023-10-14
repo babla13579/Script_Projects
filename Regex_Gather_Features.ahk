@@ -2,14 +2,18 @@
 #Include Rufaydium.ahk
 ;}
 
+MSEdge := new Rufaydium("msedgedriver.exe","--port=9516")
+Chrome := new Rufaydium("chromedriver.exe","--port=9515")
+MSEdge_Persistent := new Rufaydium("msedgedriver.exe","--port=9526")
+Chrome_Persistent := new Rufaydium("chromedriver.exe","--port=9525")
+
 loop
 {
   if ( (A_TimeIdlePhysical > 29999) && (A_TimeIdlePhysical < 35001 ) ) {
-    Run cmd.exe /c taskkill /f /t /im:msedgedriver.exe , , Min
     Loop, Files, C:\Users\%username%\AppData\Local\Temp\*.*, D
     {
       if (A_TimeIdlePhysical > 29999) {
-        if InStr(A_LoopFileFullPath, "scoped_dir") || InStr(A_LoopFileFullPath, "edge_BITS_") {   ; Remove Edge Specific Temp Files
+        if InStr(A_LoopFileFullPath, "scoped_dir") || InStr(A_LoopFileFullPath, "_BITS_")  {   ; Remove Edge Specific Temp Files
           FileRemoveDir, % A_LoopFileFullPath, 1
         }
       }
@@ -37,27 +41,29 @@ flash_Screen(f_Color) {
 
 Escape::  ; Reload Scripts - Sourced from Local Desktop
   send, {Esc}
+  reload_Function()
+  return
+
++Escape::
   MSEdge.QuitAllSessions() ; close all session
-  MSEdge.Driver.Exit() ; then exits driver
+  Chrome.QuitAllSessions() ; close all session
   reload_Function()
   return
 
 !r::
-    MSEdge := new Rufaydium("msedgedriver.exe","--port=54226")
-    ;~ MSEdge.capabilities.HeadlessMode := User_Config_File.Rufaydium.HeadlessMode
-    MSEdge.Maximize()
-    MSEdge := MSEdge.NewSession()
+    MSEdge_document := MSEdge.NewSession()
+    MSEdge_document.Maximize()
     sleep 100
-    MSEdge.Navigate("https://gist.github.com/CMCDragonkai/6c933f4a7d713ef712145c5eb94a1816")
-    Table := MSEdge.querySelector("#file-regular_expression_engine_comparison-md-readme > article > table > tbody").innerHTML
+    MSEdge_document.Navigate("https://gist.github.com/CMCDragonkai/6c933f4a7d713ef712145c5eb94a1816")
+    Table := MSEdge_document.querySelector("#file-regular_expression_engine_comparison-md-readme > article > table > tbody").innerHTML
     StringReplace, Table,Table,<span>,, UseErrorLevel
     StringReplace, Table,Table,</span>,, UseErrorLevel
-    FileDelete, C:\Users\babla\OneDrive\Desktop\Temp_Files\Regex_Table_InnerHTML.txt
-    FileDelete, C:\Users\babla\OneDrive\Desktop\Regex_Features.tsv
-    FileAppend, %Table%,C:\Users\babla\OneDrive\Desktop\Temp_Files\Regex_Table_InnerHTML.txt
+    FileDelete, C:\Users\%username%\OneDrive\Desktop\Temp_Files\Regex_Table_InnerHTML.txt
+    FileDelete, C:\Users\%username%\OneDrive\Desktop\Regex_Features.tsv
+    FileAppend, %Table%,C:\Users\%username%\OneDrive\Desktop\Temp_Files\Regex_Table_InnerHTML.txt
     Array := []
     Topic= ;nul
-    Loop, Read, C:\Users\babla\OneDrive\Desktop\Temp_Files\Regex_Table_InnerHTML.txt
+    Loop, Read, C:\Users\%username%\OneDrive\Desktop\Temp_Files\Regex_Table_InnerHTML.txt
     {
       ;~ MsgBox % A_LoopReadLine
       if (RegExMatch(A_LoopReadLine, "^\s*<\/?tr>\s*$", SubPat)) {  ; If End or Start of Table Row, initialize vars and continue
@@ -71,7 +77,7 @@ Escape::  ; Reload Scripts - Sourced from Local Desktop
             line=%line%`t%element%
           }
           ;~ MsgBox % line
-          FileAppend, %line%`n,C:\Users\babla\OneDrive\Desktop\Regex_Features.tsv
+          FileAppend, %line%`n,C:\Users\%username%\OneDrive\Desktop\Regex_Features.tsv
         }
         Array := []
         line= ;nul
