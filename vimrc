@@ -16,3 +16,9 @@ set showmatch           "Matching Parens are highlighted
 
 " c-a  Opposite of c-x   --- num under cursor ++1... tmux overwrites c-a
 noremap <c-b> <c-a>
+
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
