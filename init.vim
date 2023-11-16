@@ -1,3 +1,9 @@
+"
+"  NeoVIM Config
+"  JavaScript Linting and Syntax Highlighting
+"  F3 -- Mouse Mode Toggling
+"  \p  --  system clipboard pasting
+
 set nocompatible	"Force vim settings  (vs VI)
 syntax on		"Highlighting Syntax
 set number		"Line Numbering
